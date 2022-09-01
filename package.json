@@ -1,5 +1,5 @@
 {
-  "name": "techhaven-account-management",
+  "name": "techhaven.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
+    "@heroicons/react": "^2.0.10",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
