@@ -1,4 +1,5 @@
 import type { GetServerSidePropsContext, NextPage } from 'next';
+import { AvatarType, UserInterface } from 'myTypes';
 import { unstable_getServerSession } from 'next-auth';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
@@ -9,19 +10,18 @@ import { useEffect, useState } from 'react';
 const Dashboard: NextPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  console.log(session);
+
   if (!session) router.push('/');
 
-  const [user, setUser] = useState({});
-  const [username, setUsername] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [user, setUser] = useState<UserInterface | any>({});
+  const [avatar, setAvatar] = useState<AvatarType>('');
 
   useEffect(() => {
-    if (session?.user) {
+    if (session) {
       setUser(session.user);
     }
 
-    if (session?.user?.discord) {
+    if (session?.user?.discord?.avatar) {
       setAvatar(
         `https://cdn.discordapp.com/avatars/${session.user.discord.id}/${session.user.discord.avatar}`
       );

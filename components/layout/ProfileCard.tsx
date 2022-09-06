@@ -1,31 +1,17 @@
 import Image from 'next/image';
+import { DiscordUserType, UserStateProps } from 'myTypes';
+import { FC } from 'react';
 import defaultAvatar from '../../public/default_avatar.jpg';
 
-type UserType = {
-  id: string;
-  username: string;
-  discord: {
-    id: string;
-    avatar: string;
-    username: string;
-    discriminator: string;
-  };
-};
-
-type AvatarType = {
-  avatar: string;
-};
-
-interface Props {
-  user: UserType;
-  avatar: AvatarType;
+interface DiscordButtonProps {
+  discord: DiscordUserType;
 }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const ProfileCard = ({ user, avatar }: Props) => (
+const ProfileCard: FC<UserStateProps> = ({ user, avatar }) => (
   <div className='bg-navbar rounded-lg border border-gray-600 shadow-md'>
     <div className='flex flex-col items-center py-10'>
       <h2 className='pb-4'>TH Account</h2>
@@ -52,7 +38,7 @@ const ProfileCard = ({ user, avatar }: Props) => (
   </div>
 );
 
-const DiscordLinkedButton = ({ discord }: UserType['discord']) => (
+const DiscordLinkedButton = ({ discord }: DiscordButtonProps) => (
   <a
     href={
       discord
@@ -85,7 +71,7 @@ const IsNotLinked = () => (
   </>
 );
 
-const IsLinked = ({ discord }: UserType['discord']) => (
+const IsLinked = ({ discord }: DiscordButtonProps) => (
   <>
     Linked with {discord.username}#{discord.discriminator}
     <svg

@@ -1,5 +1,6 @@
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import KeycloakProvider from 'next-auth/providers/keycloak';
+import { UserInterface } from 'myTypes';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -22,10 +23,11 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  secret: 'VfX9HS5N1YJpaYy/OtiGzH6f0F6hKKOcrmXH3xtpJi4=',
+  secret: process.env.JWT_SECRET,
   callbacks: {
-    async jwt({ token, profile, user }) {
-      if (profile) {
+    async jwt({ token, profile }) {
+      const user = {} as UserInterface;
+      if (profile?.sub && profile?.username) {
         user.id = profile.sub;
         user.username = profile.username;
 
@@ -44,7 +46,7 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      if (token?.user) {
+      if (token.user) {
         session.user = token.user;
       }
       return session;

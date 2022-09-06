@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect, DOMAttributes } from 'react';
 import Image from 'next/image';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -9,14 +9,24 @@ import defaultAvatar from '../../public/default_avatar.jpg';
 import LoginBtn from './LoginBtn';
 import Link from 'next/link';
 
+type UserMenuProps = {
+  avatar: string | null;
+};
+
+interface UserNavigation {
+  name: string;
+  href?: string;
+  target?: string;
+  onClick?: DOMAttributes<HTMLAnchorElement>['onClick'];
+}
+
 const navigation = [
   { name: 'Forums', href: 'https://forums.techhaven.io/', current: false },
   { name: 'Discord', href: 'https://discord.gg/5kG6kp2zA8', current: false },
 ];
 
-const userNavigation = [
+const userNavigation: UserNavigation[] = [
   { name: 'Dashboard', href: '/dashboard' },
-  ,
   {
     name: 'TH Account Management',
     href: 'https://login.techhaven.io/realms/tech-haven/account/',
@@ -131,7 +141,7 @@ const Navbar = () => {
   );
 };
 
-const UserMenu = ({ avatar }) => (
+const UserMenu = ({ avatar }: UserMenuProps) => (
   <Menu as='div' className='relative ml-3'>
     <div>
       <Menu.Button className='flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
@@ -158,18 +168,16 @@ const UserMenu = ({ avatar }) => (
         <p>{}</p>
         {userNavigation.map((item) => (
           <Menu.Item key={item.name}>
-            {({ active }) => (
-              <a
-                href={item.href}
-                onClick={item.onClick}
-                target={item.target}
-                className={
-                  'block px-4 py-2 text-sm text-gray-400 hover:text-white'
-                }
-              >
-                {item.name}
-              </a>
-            )}
+            <a
+              href={item.href}
+              onClick={item.onClick}
+              target={item.target}
+              className={
+                'block px-4 py-2 text-sm text-gray-400 hover:text-white'
+              }
+            >
+              {item.name}
+            </a>
           </Menu.Item>
         ))}
       </Menu.Items>
