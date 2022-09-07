@@ -22,14 +22,10 @@ const ProfileCard: FC<UserStateProps> = ({ user, avatar }) => (
         height={64}
         alt='profile picture'
       />
-      <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>
-        {user.username}
-      </h5>
-      <span className='text-sm text-gray-500 dark:text-gray-400'>
-        {user.id}
-      </span>
+      <h5 className='mb-1 text-xl font-medium text-white'>{user.username}</h5>
+      <span className='text-sm text-gray-400'>{user.id}</span>
       <div className='flex flex-col mt-4 md:mt-6'>
-        <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>
+        <h5 className='mb-1 text-xl font-medium text-white'>
           Linked Accounts:
         </h5>
         <DiscordLinkedButton discord={user.discord} />
