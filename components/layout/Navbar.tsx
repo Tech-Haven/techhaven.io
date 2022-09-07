@@ -134,6 +134,38 @@ const Navbar = () => {
                 </Disclosure.Button>
               ))}
             </div>
+            <div className='border-t border-gray-700 pt-4 pb-3'>
+              <div className='flex items-center px-5'>
+                <div className='flex-shrink-0'>
+                  <Image
+                    className='rounded-full'
+                    width='48px'
+                    height='48px'
+                    src={avatar ? avatar : defaultAvatar}
+                    alt=''
+                  />
+                </div>
+                <div className='ml-3'>
+                  <div className='text-base font-medium leading-none text-white'>
+                    {username}
+                  </div>
+                </div>
+              </div>
+              <div className='mt-3 space-y-1 px-2'>
+                {userNavigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as='a'
+                    href={item.href}
+                    onClick={item.onClick}
+                    target={item.target}
+                    className='block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:text-white'
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))}
+              </div>
+            </div>
           </Disclosure.Panel>
         </>
       )}
@@ -173,7 +205,7 @@ const UserMenu = ({ avatar }: UserMenuProps) => (
               onClick={item.onClick}
               target={item.target}
               className={
-                'block px-4 py-2 text-sm text-gray-400 hover:text-white'
+                'block cursor-pointer px-4 py-2 text-sm text-gray-400 hover:text-white'
               }
             >
               {item.name}
