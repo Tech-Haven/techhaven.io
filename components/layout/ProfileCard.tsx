@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { DiscordUserType, UserStateProps } from 'myTypes';
 import { FC } from 'react';
+import Card from './Card';
 import defaultAvatar from '../../public/default_avatar.jpg';
 
 interface DiscordButtonProps {
@@ -12,8 +13,8 @@ function classNames(...classes: string[]) {
 }
 
 const ProfileCard: FC<UserStateProps> = ({ user, avatar }) => (
-  <div className='bg-navbar rounded-lg border border-gray-600 shadow-md'>
-    <div className='flex flex-col items-center py-10'>
+  <Card>
+    <>
       <h2 className='pb-4'>TH Account</h2>
       <Image
         className='rounded-full w-24 h-24'
@@ -30,8 +31,8 @@ const ProfileCard: FC<UserStateProps> = ({ user, avatar }) => (
         </h5>
         <DiscordLinkedButton discord={user.discord} />
       </div>
-    </div>
-  </div>
+    </>
+  </Card>
 );
 
 const DiscordLinkedButton = ({ discord }: DiscordButtonProps) => (

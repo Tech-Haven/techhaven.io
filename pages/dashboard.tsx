@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import { authOptions } from './api/auth/[...nextauth]';
 import ProfileCard from '../components/layout/ProfileCard';
 import { useEffect, useState } from 'react';
+import LabCard from '../components/layout/LabCard';
 
 const Dashboard: NextPage = () => {
   const { data: session } = useSession();
@@ -34,7 +35,10 @@ const Dashboard: NextPage = () => {
         <h1 className='text-3xl font-bold tracking-tight text-gray-100'>
           Dashboard
         </h1>
-        <ProfileCard avatar={avatar} user={user} />
+        <div className='mt-2 grid grid-flow-row gap-y-4'>
+          <ProfileCard avatar={avatar} user={user} />
+          <LabCard />
+        </div>
       </div>
     </section>
   );

@@ -16,6 +16,6 @@ declare module 'myTypes' {
 
   interface UserStateProps {
     user: UserInterface;
-    avatar: AvatarType;
+    avatar?: AvatarType;
   }
 }
