@@ -29,7 +29,7 @@ const navigation = [
 const userNavigation: UserNavigation[] = [
   { name: 'Dashboard', href: '/dashboard' },
   {
-    name: 'TH Account Management',
+    name: 'Account Management',
     href: 'https://login.techhaven.io/realms/tech-haven/account/',
     target: '_blank',
   },

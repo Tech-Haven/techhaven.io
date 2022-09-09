@@ -25,7 +25,7 @@ const ProfileCard: FC<UserStateProps> = ({ user, avatar }) => (
       />
       <h5 className='mb-1 text-xl font-medium text-white'>{user.username}</h5>
       <span className='text-sm text-gray-400'>{user.id}</span>
-      <div className='flex flex-col mt-4 md:mt-6'>
+      <div className='flex flex-col text-center mt-4 md:mt-6'>
         <h5 className='mb-1 text-xl font-medium text-white'>
           Linked Accounts:
         </h5>
