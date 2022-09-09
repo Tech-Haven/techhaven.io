@@ -2,6 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { unstable_getServerSession } from 'next-auth';
 import { authOptions } from './auth/[...nextauth]';
+import fetch, { FormData } from 'node-fetch';
+
 const formData = new FormData();
 
 type Response = {
@@ -29,7 +31,7 @@ export default async function handler(
     headers: { Authorization: `Bearer ${process.env.VPN_SERVER_SECRET}` },
     body: formData,
   });
-  const data = await vpnRes.json();
+  const data = (await vpnRes.json()) as any;
 
   res.setHeader('Content-Type', 'application/octet-stream');
   res.setHeader('Content-Disposition', `attachment; filename=${id}.ovpn`);
