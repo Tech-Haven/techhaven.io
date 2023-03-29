@@ -21,10 +21,12 @@ declare module 'next-auth' {
   interface Profile {
     id: string;
     username: string;
-    discord_id: string;
-    discord_avatar: string;
-    discord_username: string;
-    discord_discriminator: string;
+    discord: {
+      id: string;
+      avatar: string;
+      username: string;
+      discriminator: string;
+    };
   }
 }
 

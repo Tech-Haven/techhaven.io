@@ -64,7 +64,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      session,
+      session: JSON.parse(JSON.stringify(session)),
     },
   };
 }

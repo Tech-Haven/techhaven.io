@@ -1,10 +1,11 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      KEYCLOAK_ID: string;
-      KEYCLOAK_SECRET: string;
-      KEYCLOAK_ISSUER: string;
+      AUTHENTIK_ID: string;
+      AUTHENTIK_SECRET: string;
+      AUTHENTIK_ISSUER: string;
       JWT_SECRET: string;
+      WEBHOOK_URL: string;
     }
   }
 }

@@ -48,6 +48,37 @@ export default async function handler(
       `attachment; filename=${session.user.id}.conf`
     );
 
+    var webhookBody = {
+      username: 'techhaven.io',
+      avatar_url: '',
+      embeds: [
+        {
+          title: 'User Successfully Requested WG VPN',
+          color: 15258703,
+          fields: [
+            {
+              name: 'TH Account ID',
+              value: session.user.id,
+              inline: true,
+            },
+            {
+              name: 'TH Account Username',
+              value: session.user.username,
+              inline: true,
+            },
+          ],
+        },
+      ],
+    };
+
+    await fetch(process.env.WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(webhookBody),
+    });
+
     res.send(data.data.data);
   } catch (error) {
     console.error(error);

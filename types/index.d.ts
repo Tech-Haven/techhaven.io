@@ -1,7 +1,7 @@
 declare module 'myTypes' {
   interface UserInterface {
     id: string;
-    username: string;
+    username: string | undefined;
     discord: DiscordUserType;
   }
 

@@ -30,7 +30,7 @@ const userNavigation: UserNavigation[] = [
   { name: 'Dashboard', href: '/dashboard' },
   {
     name: 'Account Management',
-    href: 'https://login.techhaven.io/realms/tech-haven/account/',
+    href: 'https://login.techhaven.io/if/user/#/settings',
     target: '_blank',
   },
   { name: 'Sign out', onClick: () => signOut() },

@@ -40,7 +40,7 @@ const DiscordLinkedButton = ({ discord }: DiscordButtonProps) => (
     href={
       discord
         ? '#'
-        : 'https://login.techhaven.io/realms/tech-haven/account/#/security/linked-accounts'
+        : 'https://login.techhaven.io/if/user/#/settings;%7B%22page%22%3A%22page-sources%22%7D'
     }
     className={classNames(
       discord
