@@ -25,7 +25,7 @@ export default async function handler(
   }
 
   try {
-    const body = { ClientID: session.user.id };
+    const body = { ClientID: session.user.id.slice(0, 15) };
 
     const vpnRes = await fetch(`https://wg.vpn.lab.techhaven.io/clients`, {
       method: 'post',
@@ -45,7 +45,7 @@ export default async function handler(
     res.setHeader('Content-Type', 'application/octet-stream');
     res.setHeader(
       'Content-Disposition',
-      `attachment; filename=${session.user.id}.conf`
+      `attachment; filename=${session.user.username}.conf`
     );
 
     var webhookBody = {
