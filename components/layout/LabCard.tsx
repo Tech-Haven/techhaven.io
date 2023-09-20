@@ -4,10 +4,28 @@ const LabCard = () => (
   <Card>
     <>
       <h2 className='pb-4'>Lab Access</h2>
-      <h5 className='pb-4 text-sm text-gray-400'>
-        Request a VPN file to access the VM lab and vulnerable application labs
-      </h5>
-      <DownloadVPNButton />
+      <h3 className='pb-4 text-sm text-gray-400'>
+        We now use Tailscale for accessing the lab. Linux users can install with this one-liner. 
+      </h3>
+      <h3 class="pb-4 text-sm text-gray-400 hover:underline hover:text-gray-300">
+        <a href="https://forums.techhaven.io/t/access-labs-via-tailscale/316" target="_blank" rel="noopener noreferrer">
+        Visit forums for more info.
+        </a>
+      </h3>
+      <div>
+        <code class="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6 mx-4">
+        <span class="flex gap-4">
+          <span class="shrink-0 text-gray-500">
+            $
+          </span>
+          
+          <span class="flex-1">
+            <span>curl -fsSL https://raw.githubusercontent.com/Tech-Haven/tailscale-install/master/install.sh | sudo sh</span>
+          </span>
+        </span>
+      </code>
+        <h5 class="text-right mx-4 text-gray-400 hover:underline hover:text-gray-300"><a href="https://raw.githubusercontent.com/Tech-Haven/tailscale-install/master/install.sh" target="_blank" rel="noopener noreferrer">View source</a></h5>
+      </div>
     </>
   </Card>
 );
