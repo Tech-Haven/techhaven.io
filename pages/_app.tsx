@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <PlausibleProvider domain="techhaven.io" customDomain='https://analytics.techhaven.io' selfHosted={true} trackOutboundLinks={true}>
+    <PlausibleProvider domain="techhaven.io" customDomain='https://analytics.techhaven.io' selfHosted={true} trackOutboundLinks={true} enabled={true}>
       <SessionProvider session={session}>
         <Layout>
           <Component {...pageProps} />
