@@ -15,4 +15,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlausibleProxy({customDomain: "https://analytics.techhaven.io"})(nextConfig)
+module.exports = withPlausibleProxy()(nextConfig)
