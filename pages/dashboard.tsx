@@ -1,6 +1,6 @@
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { AvatarType, UserInterface } from 'myTypes';
-import { unstable_getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import { authOptions } from './api/auth/[...nextauth]';
@@ -47,7 +47,7 @@ const Dashboard: NextPage = () => {
 export default Dashboard;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await unstable_getServerSession(
+  const session = await getServerSession(
     context.req,
     context.res,
     authOptions

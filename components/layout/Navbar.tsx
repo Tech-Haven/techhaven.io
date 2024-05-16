@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect, DOMAttributes } from 'react';
 import Image from 'next/image';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItems, MenuItem, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import { signOut, useSession } from 'next-auth/react';
@@ -69,8 +69,8 @@ const Navbar = () => {
                   <Link href='/' passHref>
                     <Image
                       className='hover:cursor-pointer'
-                      width='48px'
-                      height='48px'
+                      width={48}
+                      height={48}
                       src={logo}
                       alt='logo'
                     />
@@ -104,22 +104,22 @@ const Navbar = () => {
               </div>
               <div className='-mr-2 flex md:hidden'>
                 {/* Mobile menu button */}
-                <Disclosure.Button className='inline-flex items-center justify-center rounded-md bg-navbar p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+                <DisclosureButton className='inline-flex items-center justify-center rounded-md bg-navbar p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
                   <span className='sr-only'>Open main menu</span>
                   {open ? (
                     <XMarkIcon className='block h-6 w-6' aria-hidden='true' />
                   ) : (
                     <Bars3Icon className='block h-6 w-6' aria-hidden='true' />
                   )}
-                </Disclosure.Button>
+                </DisclosureButton>
               </div>
             </div>
           </div>
 
-          <Disclosure.Panel className='md:hidden'>
+          <DisclosurePanel className='md:hidden'>
             <div className='space-y-1 px-2 pt-2 pb-3 sm:px-3'>
               {navigation.map((item) => (
-                <Disclosure.Button
+                <DisclosureButton
                   key={item.name}
                   as='a'
                   href={item.href}
@@ -132,7 +132,7 @@ const Navbar = () => {
                   aria-current={item.current ? 'page' : undefined}
                 >
                   {item.name}
-                </Disclosure.Button>
+                </DisclosureButton>
               ))}
             </div>
             {session ? (
@@ -142,7 +142,7 @@ const Navbar = () => {
                 <LoginBtn />
               </div>
             )}
-          </Disclosure.Panel>
+          </DisclosurePanel>
         </>
       )}
     </Disclosure>
@@ -152,16 +152,16 @@ const Navbar = () => {
 const UserMenu = ({ avatar }: UserMenuProps) => (
   <Menu as='div' className='relative ml-3'>
     <div>
-      <Menu.Button className='flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+      <MenuButton className='flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
         <span className='sr-only'>Open user menu</span>
         <Image
           className='rounded-full'
-          width='48px'
-          height='48px'
+          width={48}
+          height={48}
           src={avatar ? avatar : defaultAvatar}
           alt=''
         />
-      </Menu.Button>
+      </MenuButton>
     </div>
     <Transition
       as={Fragment}
@@ -172,10 +172,10 @@ const UserMenu = ({ avatar }: UserMenuProps) => (
       leaveFrom='transform opacity-100 scale-100'
       leaveTo='transform opacity-0 scale-95'
     >
-      <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-navbar py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+      <MenuItems className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-navbar py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
         <p>{}</p>
         {userNavigation.map((item) => (
-          <Menu.Item key={item.name}>
+          <MenuItem key={item.name}>
             <a
               href={item.href}
               onClick={item.onClick}
@@ -186,9 +186,9 @@ const UserMenu = ({ avatar }: UserMenuProps) => (
             >
               {item.name}
             </a>
-          </Menu.Item>
+          </MenuItem>
         ))}
-      </Menu.Items>
+      </MenuItems>
     </Transition>
   </Menu>
 );
@@ -199,8 +199,8 @@ const UserMenuMobile = ({ avatar, username }: UserMenuProps) => (
       <div className='flex-shrink-0'>
         <Image
           className='rounded-full'
-          width='48px'
-          height='48px'
+          width={48}
+          height={48}
           src={avatar ? avatar : defaultAvatar}
           alt=''
         />
@@ -213,7 +213,7 @@ const UserMenuMobile = ({ avatar, username }: UserMenuProps) => (
     </div>
     <div className='mt-3 space-y-1 px-2'>
       {userNavigation.map((item) => (
-        <Disclosure.Button
+        <DisclosureButton
           key={item.name}
           as='a'
           href={item.href}
@@ -222,7 +222,7 @@ const UserMenuMobile = ({ avatar, username }: UserMenuProps) => (
           className='block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:text-white'
         >
           {item.name}
-        </Disclosure.Button>
+        </DisclosureButton>
       ))}
     </div>
   </div>

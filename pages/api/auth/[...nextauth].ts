@@ -23,7 +23,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, profile }) {
       const user = {} as UserInterface;
-      if (profile?.sub && profile?.preferred_username) {
+      if (profile?.sub) {
         user.id = profile.sub;
         user.username = profile.name;
 
