@@ -8,6 +8,10 @@ const nextConfig = {
         destination: 'https://analytics.techhaven.io/js/script.js'
       },
       {
+        source: '/modules/js/script.outbound-links.js',
+        destination: 'https://analytics.techhaven.io/js/script.outbound-links.js'
+      },
+      {
         source: '/modules/api/event',
         destination: 'https://analytics.techhaven.io/api/event'
       }

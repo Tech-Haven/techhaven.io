@@ -7,7 +7,7 @@ import Script from 'next/script';
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
-      <Script defer data-domain="techhaven.io" data-api="/modules/api/event" src="/modules/js/script.js"></Script>
+      <Script defer data-domain="techhaven.io" data-api="/modules/api/event" src="/modules/js/script.outbound-links.js"></Script>
       <Layout>
         <Component {...pageProps} />
       </Layout>
