@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => (
   <footer className='container mx-auto mt-auto mb-4 text-gray-200'>
@@ -20,6 +21,7 @@ const Footer = () => (
       <div className='flex flex-row justify-between pt-4'>
         <p>&copy; {new Date().getFullYear()} Tech Haven. All Rights Reserved</p>
         <div className='flex flex-row gap-4'>
+          <Link className="hover:underline hover:cursor-pointer hover:text-white" href='/privacy' passHref>Privacy Policy</Link>
           <a href='https://discord.gg/5kG6kp2zA8'>
             <svg
               width='24'
