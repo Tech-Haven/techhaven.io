@@ -1,18 +1,17 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
-import PlausibleProvider from 'next-plausible';
 import Layout from '../components/Layout';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <PlausibleProvider domain="techhaven.io" customDomain='https://analytics.techhaven.io' selfHosted={true} trackOutboundLinks={true} trackLocalhost={true} enabled={true}>
-      <SessionProvider session={session}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>
-    </PlausibleProvider>
+    <SessionProvider session={session}>
+      <Script defer data-domain="techhaven.io" data-api="/modules/api/event" src="/modules/js/script.js"></Script>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 }
 

@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
 
-const { withPlausibleProxy } = require('next-plausible')
-
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/modules/js/script.js',
+        destination: 'https://analytics.techhaven.io/js/script.js'
+      },
+      {
+        source: '/modules/api/event',
+        destination: 'https://analytics.techhaven.io/api/event'
+      }
+    ]
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -15,4 +25,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlausibleProxy({customDomain: "https://analytics.techhaven.io"})(nextConfig)
+module.exports = nextConfig
