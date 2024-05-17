@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+      {
+        "source": "/modules/js/script.js",
+        "destination": "https://analytics.techhaven.io/js/script.js"
+      },
+      {
+        "source": "/modules/api/event",
+        "destination": "https://analytics.techhaven.io/api/event"
+      }
+    ]
+  }
