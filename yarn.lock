@@ -2023,12 +2023,7 @@ next-auth@^4.24.7:
     preact-render-to-string "^5.1.19"
     uuid "^8.3.2"
 
-next-plausible@^3.12.0:
-  version "3.12.0"
-  resolved "https://registry.npmjs.org/next-plausible/-/next-plausible-3.12.0.tgz"
-  integrity sha512-SSkEqKQ6PgR8fx3sYfIAT69k2xuCUXO5ngkSS19CjxY97lAoZxsfZpYednxB4zo0mHYv87JzhPynrdBPlCBVHg==
-
-"next@^11.1.0 || ^12.0.0 || ^13.0.0 || ^14.0.0", "next@^12.2.5 || ^13 || ^14", next@^14.2.3:
+"next@^12.2.5 || ^13 || ^14", next@^14.2.3:
   version "14.2.3"
   resolved "https://registry.npmjs.org/next/-/next-14.2.3.tgz"
   integrity sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A==
